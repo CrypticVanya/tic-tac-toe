@@ -22,7 +22,7 @@ makeGrid(3, 3)
 
 
 function winningMessage() {
-    return `player ${currentPlayer} has won`
+    return `Player ${currentPlayer} has won`
 }
 
 function drawMessage() {
@@ -30,25 +30,20 @@ function drawMessage() {
 }
 
 function currentPlayerTurn() {
-    return `it's ${currentPlayer}'s turn`
+    return `It's ${currentPlayer}'s turn`
 }
 
-statusDisplay.innerHTML = currentPlayerTurn()
-
-
+statusDisplay.textContent = currentPlayerTurn()
 
 function changePlayer() {
     currentPlayer = currentPlayer === 'x' ? 'o' : 'x'
-    statusDisplay.innerHTML = currentPlayerTurn() 
+    statusDisplay.textContent = currentPlayerTurn() 
 }
-
-
 
 function handleSlots(clickedSlot, clickedSlotIndex) {
     gameBoard[clickedSlotIndex] = currentPlayer
-    clickedSlot.innerHTML = currentPlayer
+    clickedSlot.textContent = currentPlayer
 }
-
 
 
 const winningSelection = [
@@ -61,7 +56,6 @@ const winningSelection = [
     [0, 4, 8],
     [2, 4, 6]
 ]
-
 
 
 function results() {
@@ -82,14 +76,14 @@ function results() {
     }
     
     if (hasWon) {
-            statusDisplay.innerHTML = winningMessage()
+            statusDisplay.textContent = winningMessage()
             gameActive = false
             return
         }
 
         let roundDraw = !gameBoard.includes("")
         if (roundDraw) {
-            statusDisplay.innerHTML = drawMessage()
+            statusDisplay.textContent = drawMessage()
             gameActive = false
             return
         }
